@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="eng">
+  
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>HTML Lesson</title>
+    <style>
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <main>
+      <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" min="2" />
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" min="2" />
+
+        <label for="birthday">Date of Birth</label>
+        <input type="date" id="birthday" name="birthday" />
+
+        <label for="telephone-number">Telephone Number</label>
+        <input type="tel" id="telephone-number" name="telephone-number" />
+
+        <label for="plans">Choose Your Plan</label>
+        <select id="plans" name="plans">
+
+          <option>
+            Free Plan
+          </option>
+
+          <optgroup label="Paid Plans">
+            <option>$30 Plan</option>
+            <option>$60 Plan</option>
+            <option>$100 Plan</option>
+          </optgroup>
+          
+        </select>    
+        
+        <label for="pro-plan-option">
+          <input type="checkbox" id="pro-plan-option" name="pro-plan-option" />
+            Pro Plan
+        </label>
+
+        <label for="credit-card-number">Credit Card Number</label>
+        <input type="text" id="credit-card-number" name="credit-card-number"
+          maxlength="16" onkeypress="return /[0-9]/i.test(event.key)" />
+
+        <label for="cvc">CVC</label>
+        <input type="text" id="cvc" name="cvc" 
+          maxlength="3" onkeypress="return /[0-9]/i.test(event.key)" />
+      
+        <label for="expiration-date">Expiration Date</label>
+        <input type="date" id="expiration-date" name="expiration-date" />
+
+        <label for="billing-address">Billing Address</label>
+        <input type="text" id="billing-address" name="billing-address" />
+
+        <br />
+        <br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </main>
+
+  </body>
+</html>

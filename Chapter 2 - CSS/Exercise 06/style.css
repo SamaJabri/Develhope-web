@@ -1,0 +1,49 @@
+body
+{
+    width  : 60em;
+    margin : 0 auto;
+}
+
+section
+{
+    margin  : 1em;
+    padding : 2em;
+}
+
+#green
+{
+    background-color : #8FFDA7;
+}
+
+#orange
+{
+    background-color : #FFC788;
+}
+
+#yellow
+{
+    background-color : #FFFF92;
+}
+
+#red
+{
+    background-color : #FF919C;
+}
+
+#blue
+{
+    background-color : #98D2FF;
+}
+
+ul
+{
+    padding : 0;
+}
+
+li
+{
+    display          : block;
+    margin           : 1em;
+    padding          : 1em;
+    background-color : white;
+}

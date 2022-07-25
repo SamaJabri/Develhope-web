@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*
+{
+    font-family : 'Inter', sans-serif;
+}
+
+body
+{
+    display         : flex;
+    justify-content : center;
+}
+
+article
+{
+    width         : 350px;
+    border        : 1px solid #EDEDED;
+    border-radius : 0.5rem;
+}
+
+.card-heading
+{
+    margin  : 0;
+    padding : 0 1em;
+}
+
+.card-heading p
+{
+    margin-top  : -0.5rem;
+    line-height : 1.5rem;
+}
+
+.card-items
+{
+    display        : flex;
+    flex-direction : column;
+    margin         : 0;
+    padding        : 0;
+    list-style     : none;
+}
+
+.card-items li
+{
+    padding    : 0.7em 1em;
+    border-top : 1px solid #EDEDED;
+}
+
+.card-details
+{
+    display        : flex;
+    flex-direction : column;
+}
+
+.card-links
+{
+    display         : flex;
+    justify-content : space-between;
+    width           : 53%;
+    padding         : 1em;
+    border-top      : 1px solid #EDEDED;
+}
+
+.card-links a
+{
+    color : #2078FD;
+}
+
+.card-links a:hover
+{
+    cursor : pointer;
+    color  : #1C5EC2;
+}

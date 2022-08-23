@@ -48,7 +48,7 @@ main button {
 }
 
 .bottom {
-    position: relative;
+    position: absolute;
     float: right;
     top: 44rem;
     right: 2rem;
@@ -56,4 +56,25 @@ main button {
     height: 3rem;
     border-radius: 3rem;
     border: none;
+}
+
+.open-nav {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    nav {
+        display: none;
+    }
+
+    main input {
+        display: none;
+    }
+
+    .open-nav {
+        display: block;
+        width: 4rem;
+        height: 2rem;
+        background: #c4c4c4;
+    }
 }

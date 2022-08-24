@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 7rem;
+    width: 100vw;
+    height: 5rem;
+    background-color: #cccccc;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+    height: 90%;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header input {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #a3a3a3;
+    width: 40rem;
+    height: 3rem;
+}
+
+header p {
+    background-color: #3f3f3f;
+    width: 10rem;
+    height: 100%;
+    border-radius: 0.3rem;
+}
+
+header button {
+    display: none;
+    width: 3rem;
+    height: 100%;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #a3a3a3;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 100vh;
+}
+
+main > div {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60rem;
+    height: 100%;
+}
+
+main > div > h2 {
+    background-color: #cccccc;
+    width: 30rem;
+    height: 2rem;
+}
+
+main > div > div:not(.boxes) {
+    border-radius: 0.3rem;
+    width: 100%;
+    height: 25rem;
+    background-color: #a3a3a3;
+}
+
+.boxes {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxes > div {
+    width: 20%;
+    height: 100%;
+    background-color: #cccccc;
+}
+@media (max-width:1280px) {
+    header input {
+        display: none;
+    }
+
+    header button {
+        
+        display: block;
+    }
+
+    header {
+        justify-content: space-between;
+        padding: 1rem 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header p {
+        display: none;
+    }
+
+    main > div {
+        padding-top: 5rem;
+        justify-content: flex-start;
+    }
+
+    main > div {
+        width: 40rem;
+    }
+
+    .boxes {
+        height: 10%;
+    }
+}

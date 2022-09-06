@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*
+{
+    font-family : 'Inter', sans-serif;
+}
+
+.header
+{
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    display          : flex;
+    align-items      : center;
+    justify-content  : space-between;
+    width            : 100vw;
+    color            : white;
+    background-color : #202529;
+}
+
+.header__left-side
+{
+    display : flex;
+    width   : 28rem;
+}
+
+.header__left-side h2
+{
+    margin-left : 0.7em;
+    font-weight : 400;
+}
+
+.header__left-side > div
+{
+    display         : flex;
+    justify-content : space-between;
+}
+
+.header__left-side > div > button
+{
+    display      : none;
+    margin-right : 0.7em;
+    font-size    : 1.5rem;
+    color        : white;
+    border       : none;
+    background   : transparent;
+}
+
+.header__left-side > div > button:hover
+{
+    cursor : pointer;
+}
+
+.header__options
+{
+    display         : flex;
+    align-items     : center;
+    justify-content : space-around;
+    width           : 70%;
+    list-style      : none;
+}
+
+.header__options a
+{
+    margin-right    : 0.5em;
+    text-decoration : none;
+    color           : #9B9D9F;
+}
+
+.header__options a:hover
+{
+    color : white;
+}
+
+.header__options a[aria-disabled = 'true']
+{
+    color : #595C60;
+}
+
+.header__dropdown
+{
+    font-size        : inherit;
+    color            : #9B9D9F;
+    border           : none;
+    outline          : none;
+    background-color : transparent;
+}
+
+.header__dropdown:hover
+{
+    cursor : pointer;
+    color  : white;
+}
+
+.header__dropdown option
+{
+    color : initial;
+}
+
+.header__search-bar
+{
+    margin-right : 0.7em;
+}
+
+.header__search-bar input
+{
+    width         : 65%;
+    padding       : 0.7em 0.8em;
+    font-size     : 1em;
+    border        : none;
+    border-radius : 0.2em;
+    outline       : none;
+}
+
+.header__search-bar button
+{
+    margin-left      : 0.2em;
+    padding          : 0.7em;
+    font-size        : 1em;
+    color            : #1A8754;
+    border           : 1px solid #1A8754;
+    border-radius    : 0.2em;
+    background-color : transparent;
+}
+
+.header__search-bar button:hover
+{
+    cursor           : pointer;
+    transition       : 0.3s;
+    color            : white;
+    background-color : #1A8754;
+}
+
+@media (max-width : 768px)
+{
+    .header__left-side
+    {
+        flex-direction  : column;
+        justify-content : center;
+        width           : 100vw;
+    }
+
+    .header__left-side > div > button
+    {
+        display : block;
+    }
+
+    .header__options
+    {
+        display         : none;
+        flex-direction  : column;
+        justify-content : flex-start;
+        width           : 100vw;
+        height          : 100vh;
+        padding         : 0;
+    }
+
+    .header__options li
+    {
+        margin-top : 1rem;
+    }
+
+    .header__search-bar
+    {
+        display : none;
+    }
+}

@@ -1,0 +1,45 @@
+$primary-color: red;
+$header: green;
+$paragraphs: blue;
+
+@mixin layout($color: $header, $border-color: $primary-color, $font-size: 1.2rem) {
+    color: $color;
+    border: 1px solid $border-color;
+    font-size: $font-size;
+}
+
+.exercise {
+    @include layout;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+
+    &-title {
+        border-bottom: 1px solid $paragraphs;
+    }
+
+    &-articles {
+        display: flex;
+        border: none;
+        flex-direction: row;
+    }
+
+    &-article {
+        @include layout($paragraphs, $header);
+        text-align: center;
+        padding: 1.5rem 1rem; 
+            
+        &:nth-child(2n) {
+            color: $primary-color;
+        }
+    }
+
+    &-paragraph {
+        @include layout($header, $paragraphs, 2rem);
+        text-align: center;
+        padding: 1.5rem 2.5rem;
+    }
+}

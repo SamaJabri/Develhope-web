@@ -1,6 +1,6 @@
 function sayHelloName(callback) {
     console.log("Hello "); 
-    callback("Sama");
+    callback("Someone");
 }
 
 function printName(name) {

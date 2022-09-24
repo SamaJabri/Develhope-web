@@ -7,9 +7,9 @@ let newUser = {...user};
 
 /* I used a "for in" loop here because the question said so */
 for(const characteristc in newUser) {
-  characteristc === "name" ? 
-    newUser[characteristc] = "Paolo" : 
-      null;
+  characteristc === "name" 
+    ? newUser[characteristc] = "Paolo" 
+    : null;
 }
 
 newUser.name = "Paolo";

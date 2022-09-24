@@ -1,5 +1,3 @@
-const sum = () => {
-  return 5 + 5;
-}
+const sum = () => 5 + 5;
 
 console.log(sum());

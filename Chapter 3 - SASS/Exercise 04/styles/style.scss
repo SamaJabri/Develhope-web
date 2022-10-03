@@ -1,0 +1,50 @@
+@use "functions" as f;
+@use "variables" as vars;
+
+@mixin layout($color: vars.$header, $border-color: vars.$primary-color, $font-size: 1.2rem) {
+    color: $color;
+    border: f.toRem(1) solid $border-color;
+    font-size: $font-size;
+}
+
+.exercise {
+    @include layout;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: f.toRem(19);
+
+    &-title {
+        border-bottom: f.toRem(1) solid vars.$paragraphs;
+    }
+
+    &-subtitle {
+        @extend .exercise-title;
+        padding: 1rem;
+        border: f.toRem(1) solid vars.$primary-color
+    }
+
+    &-articles {
+        display: flex;
+        border: none;
+        flex-direction: row;
+    }
+
+    &-article {
+        @include layout(vars.$paragraphs, vars.$header);
+        text-align: center;
+        padding: f.toRem(24) f.toRem(16); 
+            
+        &:nth-child(2n) {
+            color: vars.$primary-color;
+        }
+    }
+
+    &-paragraph {
+        @include layout(vars.$header, vars.$paragraphs, f.toRem(32));
+        text-align: center;
+        padding: f.toRem(24) f.toRem(40);
+        margin-top: f.toRem(16);
+    }
+}

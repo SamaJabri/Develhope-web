@@ -19,11 +19,16 @@ class Circle {
 
 class AreaCalculator {
   static calculate = (shape) => {
-    shape instanceof Circle 
-      ? Math.PI * Math.pow(shape.radius, 2)
-      : shape instanceof Square 
-        ? Math.pow(shape.side, 2) 
-        : shape.width * shape.height;
+    
+    if(shape instanceof Circle) {
+      return Math.PI * Math.pow(shape.radius, 2);
+    }
+    else if(shape instanceof Square) {
+      return Math.pow(shape.side, 2);
+    }
+    else {
+      return shape.width * shape.height;
+    }
   }
 }
 

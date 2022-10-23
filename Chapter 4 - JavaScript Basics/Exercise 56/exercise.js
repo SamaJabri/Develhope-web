@@ -1,6 +1,7 @@
 const uncompletedNotes = (notes) =>
     console.log(notes.map(({todos}) => 
                 todos.filter(({done}) => done === false)));
+    return notes.reduce(notes.todos)
 
 
 const notes = [

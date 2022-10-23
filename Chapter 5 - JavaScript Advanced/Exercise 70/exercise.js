@@ -11,7 +11,13 @@ const person1 = {
 };
 
 const person2 = { ...person1, address : {...person1.address, city : 'Milan'}};
-/* person2.address.city = 'Milan'; */
+/* const person2 = structuredClone(person1);
+ person2.address.city = 'Milan';  */
+
+/* const t = {...person2};
+t.address.city = "Sama";
+console.log(person2);
+console.log(t); */
 
 console.log(person1);
-console.log(person2);
+console.log(person2); 

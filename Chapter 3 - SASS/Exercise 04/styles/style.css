@@ -1,0 +1,42 @@
+.exercise {
+  color: green;
+  border: 0.0625rem solid red;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.1875rem;
+}
+.exercise-title, .exercise-subtitle {
+  border-bottom: 0.0625rem solid blue;
+}
+.exercise-subtitle {
+  padding: 1rem;
+  border: 0.0625rem solid red;
+}
+.exercise-articles {
+  display: flex;
+  border: none;
+  flex-direction: row;
+}
+.exercise-article {
+  color: blue;
+  border: 0.0625rem solid green;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.exercise-article:nth-child(2n) {
+  color: red;
+}
+.exercise-paragraph {
+  color: green;
+  border: 0.0625rem solid blue;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1.5rem 2.5rem;
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

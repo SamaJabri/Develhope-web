@@ -1,0 +1,29 @@
+.exercise {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+}
+.exercise-title {
+  color: green;
+  border-bottom: 1px solid blue;
+}
+.exercise-articles {
+  display: flex;
+  border: none;
+  flex-direction: row;
+}
+.exercise-article {
+  border: 1px solid green;
+  text-align: center;
+  color: blue;
+  padding: 1.5rem 1rem;
+}
+.exercise-article:nth-child(2n) {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

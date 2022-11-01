@@ -1,0 +1,37 @@
+body
+{
+    display             : grid;
+    grid-template-areas : 'green green green' 'yellow red blue' 'orange orange blue';
+}
+
+#green
+{
+    grid-area : green;
+}
+
+#yellow
+{
+    grid-area : yellow;
+}
+
+#red
+{
+    grid-area : red;
+}
+
+#blue
+{
+    grid-area : blue;
+}
+
+#orange
+{
+    grid-area : orange;
+}
+
+ul
+{
+    display               : grid;
+    grid-template-columns : 50% 50%;
+    grid-template-rows    : 50% 50%;
+}

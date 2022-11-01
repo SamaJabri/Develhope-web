@@ -1,0 +1,65 @@
+*
+{
+    box-sizing : border-box;
+    margin     : 0;
+    padding    : 0;
+}
+
+.nav
+{
+    position      : fixed;
+    top           : 0;
+    left          : 0;
+    width         : 200px;
+    height        : 100vh;
+    border-right  : 1px solid #154C90;
+    border-radius : 1rem;
+    background    : linear-gradient(white, #154C90);
+}
+
+.nav__logo
+{
+    padding-top   : 1rem;
+    border-bottom : 1px solid #154C90;
+}
+
+.nav__links
+{
+    display         : flex;
+    align-items     : center;
+    flex-direction  : column;
+    justify-content : space-around;
+    height          : 35%;
+    margin-top      : 2rem;
+}
+
+.nav__link
+{
+    list-style : none;
+    font-size  : 1.2em;
+    color      : #2B2B2B;
+}
+
+.nav__link:hover
+{
+    cursor           : pointer;
+    transition-delay : 0.3s;
+    color            : #2B2BB2;
+}
+
+.nav__user-info
+{
+    position        : inherit;
+    bottom          : 0;
+    display         : flex;
+    align-items     : center;
+    flex-direction  : column;
+    justify-content : space-around;
+    width           : inherit;
+    height          : 20%;
+}
+
+.nav__user-name
+{
+    color : white;
+}

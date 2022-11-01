@@ -1,0 +1,35 @@
+$primary-color: red;
+$header: green;
+$paragraphs: blue;
+
+.exercise {
+    border: 1px solid $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+
+    &-title {
+        color: $header;
+        border-bottom: 1px solid $paragraphs;
+    }
+
+    &-articles {
+        display: flex;
+        border: none;
+        flex-direction: row;
+    }
+
+    &-article {
+        border: 1px solid $header;
+        text-align: center;
+        color: $paragraphs;
+        padding: 1.5rem 1rem;
+            
+        &:nth-child(2n) {
+            color: $primary-color;
+        }
+    }
+}

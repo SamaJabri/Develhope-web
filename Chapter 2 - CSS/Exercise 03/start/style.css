@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*
+{
+    box-sizing  : border-box;
+    margin      : 0;
+    padding     : 0;
+    font-family : 'Inter', sans-serif;
+}
+
+main
+{
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    width           : 100vw;
+    height          : 100vh;
+}
+
+.calculator
+{
+    display               : grid;
+    overflow              : hidden;
+    align-content         : center;
+    justify-content       : center;
+    width                 : 20rem;
+    height                : 21rem;
+    text-align            : center;
+    border-radius         : 0.7rem;
+    background-color      : #889CAD;
+    box-shadow            : 0 1px 6px rgba(150, 150, 150, 0.4);
+    grid-template-rows    : 15% 15% 70%;
+    grid-template-columns : 100%;
+    grid-template-areas   : 'answer' 'operations' 'pad';
+    gap                   : 2px;
+}
+
+.calculator__answer
+{
+    padding          : 0.5em 0.7rem;
+    font-size        : 1.5em;
+    text-align       : right;
+    color            : white;
+    background-color : #424C52;
+    grid-area        : answer;
+}
+
+.calculator__operations
+{
+    display               : grid;
+    background-color      : #889CAD;
+    grid-area             : operations;
+    grid-template-columns : repeat(4, 25%);
+    gap                   : 2px;
+}
+
+.calculator__operation
+{
+    padding          : 0.5em 1em;
+    list-style       : none;
+    font-size        : 1.3em;
+    font-weight      : 700;
+    background-color : #D2DCE4;
+}
+
+.calculator__operation:hover
+{
+    cursor           : pointer;
+    background-color : #B5BEC5;
+}
+
+.calculator__pad
+{
+    display               : grid;
+    align-items           : stretch;
+    grid-area             : pad;
+    grid-template-columns : 75% 1fr;
+}
+
+.calculator__digits
+{
+    display               : grid;
+    background-color      : #889CAD;
+    grid-template-columns : repeat(3, 33.4%);
+    gap                   : 2px;
+}
+
+.calculator__digit
+{
+    font-size        : 1.4em;
+    font-weight      : 600;
+    text-align       : center;
+    border           : none;
+    background-color : #EFF2F5;
+}
+
+.calculator__digit:hover
+{
+    cursor           : pointer;
+    background-color : #D0D4D8;
+}
+
+.calculator__equals
+{
+    display          : grid;
+    align-items      : center;
+    margin-left      : 0.4rem;
+    background-color : #F77077;
+}
+
+.calculator__equals button
+{
+    height     : 100%;
+    font-size  : 1.7em;
+    border     : none;
+    background : none;
+}
+
+.calculator__equals button:hover
+{
+    cursor           : pointer;
+    background-color : #DA646A;
+}

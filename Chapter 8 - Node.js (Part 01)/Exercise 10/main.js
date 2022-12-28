@@ -7,7 +7,3 @@ fs.writeFile("test.txt", "Learning Node.js...", (error) => {
   }
   console.log("Success!");
 });
-
-/*
-    Note: "test.txt.." was added by mistake while testing and wouldn't get deleted
-*/

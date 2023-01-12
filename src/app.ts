@@ -8,6 +8,7 @@ import {
   laboratorySchema,
   LaboratoryData,
 } from "./lib/validation";
+import { nextTick } from "process";
 
 const express = require("express");
 
@@ -22,13 +23,75 @@ app.get("/laboratories", async (req: Request, res: Response) => {
   res.json(laboratories);
 });
 
+app.get(
+  "/laboratories/:id(\\d+)",
+  async (req: Request, res: Response, next: any) => {
+    const laboratoryId = Number(req.params.id);
+
+    const laboratory = await prisma.laboratory.findUnique({
+      where: { laboratory_id: laboratoryId },
+    });
+
+    if (!laboratory) {
+      res.status(404);
+      return next(`Cannot GET /laboratories/${laboratoryId}`);
+    }
+
+    res.json(laboratory);
+  }
+);
+
 app.post(
   "/laboratories",
   validate({ body: laboratorySchema }),
   async (req: Request, res: Response) => {
-    const laboratory: LaboratoryData = req.body;
+    const laboratoryData: LaboratoryData = req.body;
+
+    const laboratory = await prisma.laboratory.create({
+      data: laboratoryData,
+    });
 
     res.status(201).json(laboratory);
+  }
+);
+
+app.put(
+  "/laboratories/:id(\\d+)",
+  validate({ body: laboratorySchema }),
+  async (req: Request, res: Response, next: any) => {
+    console.log(typeof next);
+    const laboratoryId = Number(req.params.id);
+    const laboratoryData: LaboratoryData = req.body;
+
+    try {
+      const laboratory = await prisma.laboratory.update({
+        where: { laboratory_id: laboratoryId },
+        data: laboratoryData,
+      });
+
+      res.status(200).json(laboratory);
+    } catch (error) {
+      res.status(404);
+      next(`Cannot PUT /laboratories/${laboratoryId}`);
+    }
+  }
+);
+
+app.delete(
+  "/laboratories/:id(\\d+)",
+  async (req: Request, res: Response, next: any) => {
+    const laboratoryId = Number(req.params.id);
+
+    try {
+      await prisma.laboratory.delete({
+        where: { laboratory_id: laboratoryId },
+      });
+
+      res.status(204).end();
+    } catch (error) {
+      res.status(404);
+      next(`Cannot DELETE /laboratories/${laboratoryId}`);
+    }
   }
 );
 

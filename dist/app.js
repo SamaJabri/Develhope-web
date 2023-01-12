@@ -1,12 +1,20 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("express-async-errors");
 const client_1 = require("@prisma/client");
+const cors_1 = __importDefault(require("cors"));
 const validation_1 = require("./lib/validation");
+const corsOptions = {
+    origin: "http://localhost:8080",
+};
 const express = require("express");
 const app = express();
 const prisma = new client_1.PrismaClient();
 app.use(express.json());
+app.use((0, cors_1.default)(corsOptions));
 app.get("/laboratories", async (req, res) => {
     const laboratories = await prisma.laboratory.findMany();
     res.json(laboratories);

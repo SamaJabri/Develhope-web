@@ -1,6 +1,7 @@
 import "express-async-errors";
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
+import cors from "cors";
 
 import {
   validate,
@@ -8,14 +9,19 @@ import {
   laboratorySchema,
   LaboratoryData,
 } from "./lib/validation";
-import { nextTick } from "process";
 
 const express = require("express");
+
+const corsOptions = {
+  origin: "http://localhost:8080",
+};
 
 const app = express();
 const prisma = new PrismaClient();
 
 app.use(express.json());
+
+app.use(cors(corsOptions));
 
 app.get("/laboratories", async (req: Request, res: Response) => {
   const laboratories = await prisma.laboratory.findMany();

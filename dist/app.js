@@ -7,10 +7,12 @@ require("express-async-errors");
 const client_1 = require("@prisma/client");
 const cors_1 = __importDefault(require("cors"));
 const validation_1 = require("./lib/validation");
+const multer_1 = require("./lib/middleware/multer");
+const upload = (0, multer_1.initMulterMiddleware)();
+const express = require("express");
 const corsOptions = {
     origin: "http://localhost:8080",
 };
-const express = require("express");
 const app = express();
 const prisma = new client_1.PrismaClient();
 app.use(express.json());
@@ -65,6 +67,15 @@ app.delete("/laboratories/:id(\\d+)", async (req, res, next) => {
         res.status(404);
         next(`Cannot DELETE /laboratories/${laboratoryId}`);
     }
+});
+app.post("/photo", upload.single("photo"), async (req, res, next) => {
+    console.log("req.file", req.file);
+    if (!req.file) {
+        res.status(400);
+        return next("No file uploaded");
+    }
+    const photoFilename = req.file.filename;
+    res.status(201).json({ photoFilename });
 });
 app.use(validation_1.validationErrorMiddleware);
 exports.default = app;

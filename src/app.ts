@@ -10,6 +10,10 @@ import {
   LaboratoryData,
 } from "./lib/validation";
 
+import { initMulterMiddleware } from "./lib/middleware/multer";
+
+const upload = initMulterMiddleware();
+
 const express = require("express");
 
 const corsOptions = {
@@ -98,6 +102,23 @@ app.delete(
       res.status(404);
       next(`Cannot DELETE /laboratories/${laboratoryId}`);
     }
+  }
+);
+
+app.post(
+  "/photo",
+  upload.single("photo"),
+  async (req: Request, res: Response, next: any) => {
+    console.log("req.file", req.file);
+
+    if (!req.file) {
+      res.status(400);
+      return next("No file uploaded");
+    }
+
+    const photoFilename = req.file.filename;
+
+    res.status(201).json({ photoFilename });
   }
 );
 

@@ -1,6 +1,6 @@
 import addFormats from "ajv-formats";
 import { Validator, ValidationError } from "express-json-validator-middleware";
-import { ErrorRequestHandler, response } from "express";
+import { ErrorRequestHandler } from "express";
 
 const validator = new Validator({});
 
@@ -8,9 +8,9 @@ addFormats(validator.ajv, ["date-time"])
   .addKeyword("kind")
   .addKeyword("modifier");
 
-export const validate = validator.validate;
+const validate = validator.validate;
 
-export const validationErrorMiddleware: ErrorRequestHandler = (
+const validationErrorMiddleware: ErrorRequestHandler = (
   error,
   request,
   response,
@@ -24,5 +24,7 @@ export const validationErrorMiddleware: ErrorRequestHandler = (
     next(error);
   }
 };
+
+export { validate, validationErrorMiddleware };
 
 export * from "./laboratory";

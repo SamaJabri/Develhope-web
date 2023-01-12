@@ -17,12 +17,13 @@ exports.generatePhotoFilename = generatePhotoFilename;
 const storage = multer_1.default.diskStorage({
     destination: "uploads/",
     filename: (req, file, callback) => {
-        return callback(null, (0, exports.generatePhotoFilename)(file.mimetype));
+        return callback(null, generatePhotoFilename(file.mimetype));
     },
 });
-exports.multerOptions = {};
+const multerOptions = {};
+exports.multerOptions = multerOptions;
 const initMulterMiddleware = () => {
-    return (0, multer_1.default)({ storage, ...exports.multerOptions });
+    return (0, multer_1.default)({ storage, ...multerOptions });
 };
 exports.initMulterMiddleware = initMulterMiddleware;
 //# sourceMappingURL=multer.js.map

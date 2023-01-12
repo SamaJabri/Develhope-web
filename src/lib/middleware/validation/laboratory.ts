@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const laboratorySchema = Type.Object(
+const laboratorySchema = Type.Object(
   {
     laboratory_name: Type.String(),
     description: Type.Optional(Type.String()),
@@ -8,4 +8,9 @@ export const laboratorySchema = Type.Object(
   { additionalProperties: false }
 );
 
-export type LaboratoryData = Static<typeof laboratorySchema>;
+type LaboratoryData = Static<typeof laboratorySchema>;
+
+export {
+  laboratorySchema,
+  LaboratoryData
+}

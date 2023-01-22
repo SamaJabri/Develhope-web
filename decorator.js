@@ -1,24 +1,23 @@
-const clc = require("cli-color");
-
 class Text {
   constructor(text) {
-    this.text = text;
+    this.string = text;
   }
 
   toString() {
-    return this.text;
+    return this.string;
   }
 }
 
-class BlueText {
+class Shout {
   constructor(text) {
     this.text = text;
   }
 
   toString() {
-    return clc.blue(this.text.toString());
+    return this.text.toString().toUpperCase();
   }
 }
 
-console.log(new Text("AHHHHHHHHH").toString());
-console.log(new BlueText(new Text("AHHHHHHHHH IN BLUE")).toString());
+console.log(new Text("Hello, I'm talking").toString());
+
+console.log(new Shout(new Text("Hello, I'm shouting!")).toString());

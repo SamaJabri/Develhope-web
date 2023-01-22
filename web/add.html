@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Lab</title>
+  </head>
+  <body>
+    <p>
+      <a
+        href="http://localhost:3000/auth/login?redirectTo=http://localhost:8080/add"
+      >
+        Login
+      </a>
+    </p>
+    <form action="http://localhost:3000/laboratories" id="addForm">
+      <label for="laboratory_name">Lab Name</label>
+      <input type="text" name="laboratory_name" id="laboratory_name" />
+
+      <label for="description">Lab Description</label>
+      <input type="text" name="description" id="description" />
+
+      <input type="submit" />
+    </form>
+
+    <script>
+      const handleAddLab = async (e) => {
+        e.preventDefault();
+
+        const form = e.currentTarget;
+
+        const formData = new FormData(form);
+        const plainFormData = Object.fromEntries(formData.entries());
+        const formDataJsonString = JSON.stringify(plainFormData);
+
+        const url = form.action;
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: formDataJsonString,
+          credentials: "include",
+        });
+
+        const lab = await response.json();
+        console.log(response);
+
+        console.dir(lab);
+      };
+
+      const addLab = document.getElementById("addForm");
+
+      addLab.addEventListener("submit", handleAddLab);
+    </script>
+  </body>
+</html>

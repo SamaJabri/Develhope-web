@@ -8,6 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const initCorsMiddleware = () => {
     const corsOptions = {
         origin: "http://localhost:8080",
+        credentials: true,
     };
     return (0, cors_1.default)(corsOptions);
 };

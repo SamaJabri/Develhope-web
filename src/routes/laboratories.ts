@@ -10,6 +10,8 @@ import {
 
 import { initMulterMiddleware } from "../lib/middleware/multer";
 
+import { checkAuthorization } from "../lib/middleware/passport";
+
 const upload = initMulterMiddleware();
 
 const router = Router();
@@ -39,6 +41,7 @@ router.get("/:id(\\d+)", async (req: Request, res: Response, next: any) => {
 
 router.post(
   "/",
+  checkAuthorization,
   validate({ body: laboratorySchema }),
   async (req: Request, res: Response) => {
     const laboratoryData: LaboratoryData = req.body;
@@ -53,6 +56,7 @@ router.post(
 
 router.put(
   "/:id(\\d+)",
+  checkAuthorization,
   validate({ body: laboratorySchema }),
   async (req: Request, res: Response, next: any) => {
     console.log(typeof next);
@@ -73,23 +77,28 @@ router.put(
   }
 );
 
-router.delete("/:id(\\d+)", async (req: Request, res: Response, next: any) => {
-  const laboratoryId = Number(req.params.id);
+router.delete(
+  "/:id(\\d+)",
+  checkAuthorization,
+  async (req: Request, res: Response, next: any) => {
+    const laboratoryId = Number(req.params.id);
 
-  try {
-    await prisma.laboratory.delete({
-      where: { laboratory_id: laboratoryId },
-    });
+    try {
+      await prisma.laboratory.delete({
+        where: { laboratory_id: laboratoryId },
+      });
 
-    res.status(204).end();
-  } catch (error) {
-    res.status(404);
-    next(`Cannot DELETE /laboratories/${laboratoryId}`);
+      res.status(204).end();
+    } catch (error) {
+      res.status(404);
+      next(`Cannot DELETE /laboratories/${laboratoryId}`);
+    }
   }
-});
+);
 
 router.post(
   "/photo",
+  checkAuthorization,
   upload.single("photo"),
   async (req: Request, res: Response, next: any) => {
     console.log("req.file", req.file);

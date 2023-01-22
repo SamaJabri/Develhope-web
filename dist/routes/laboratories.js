@@ -27,6 +27,7 @@ const express_1 = __importStar(require("express"));
 const client_1 = require("@prisma/client");
 const validation_1 = require("../lib/middleware/validation");
 const multer_1 = require("../lib/middleware/multer");
+const passport_1 = require("../lib/middleware/passport");
 const upload = (0, multer_1.initMulterMiddleware)();
 const router = (0, express_1.Router)();
 const prisma = new client_1.PrismaClient();
@@ -45,14 +46,14 @@ router.get("/:id(\\d+)", async (req, res, next) => {
     }
     res.json(laboratory);
 });
-router.post("/", (0, validation_1.validate)({ body: validation_1.laboratorySchema }), async (req, res) => {
+router.post("/", passport_1.checkAuthorization, (0, validation_1.validate)({ body: validation_1.laboratorySchema }), async (req, res) => {
     const laboratoryData = req.body;
     const laboratory = await prisma.laboratory.create({
         data: laboratoryData,
     });
     res.status(201).json(laboratory);
 });
-router.put("/:id(\\d+)", (0, validation_1.validate)({ body: validation_1.laboratorySchema }), async (req, res, next) => {
+router.put("/:id(\\d+)", passport_1.checkAuthorization, (0, validation_1.validate)({ body: validation_1.laboratorySchema }), async (req, res, next) => {
     console.log(typeof next);
     const laboratoryId = Number(req.params.id);
     const laboratoryData = req.body;
@@ -68,7 +69,7 @@ router.put("/:id(\\d+)", (0, validation_1.validate)({ body: validation_1.laborat
         next(`Cannot PUT /laboratories/${laboratoryId}`);
     }
 });
-router.delete("/:id(\\d+)", async (req, res, next) => {
+router.delete("/:id(\\d+)", passport_1.checkAuthorization, async (req, res, next) => {
     const laboratoryId = Number(req.params.id);
     try {
         await prisma.laboratory.delete({
@@ -81,7 +82,7 @@ router.delete("/:id(\\d+)", async (req, res, next) => {
         next(`Cannot DELETE /laboratories/${laboratoryId}`);
     }
 });
-router.post("/photo", upload.single("photo"), async (req, res, next) => {
+router.post("/photo", passport_1.checkAuthorization, upload.single("photo"), async (req, res, next) => {
     console.log("req.file", req.file);
     if (!req.file) {
         res.status(400);
